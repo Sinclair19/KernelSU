@@ -10,6 +10,10 @@
 #include "selinux.h"
 #include "../klog.h" // IWYU pragma: keep
 #include "../arch.h"
+
+#define KERNEL_SU_DOMAIN	"u:r:su:s0"
+#define INIT_DOMAIN		"u:r:init:s0"
+
 int ksu_handle_security_bounded_transition(u32 *old_sid, u32 *new_sid) {
 	u32 init_sid, su_sid;
 	int error;
